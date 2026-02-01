@@ -16,7 +16,7 @@ def make_logs(lines: list[str]):
         found = re.findall(ip_pattern, line)
         rejected_ips.extend(found)
 
-    unique_rej_apis = list(set(rejected_ips))
+    unique_rej_ips = list(set(rejected_ips))
 
     # Accepted
     accepted_ips = []
@@ -24,12 +24,12 @@ def make_logs(lines: list[str]):
         found = re.findall(ip_pattern, line)
         accepted_ips.extend(found)
 
-    unique_acc_apis = list(set(accepted_ips))
+    unique_acc_ips = list(set(accepted_ips))
 
     return {
         "rejected_times" : len(rejected),
         "accepted_times" : len(accepted),
-        "rejected_ips" : unique_rej_apis,
-        "accepted_ips" : unique_acc_apis,
-        "total fot time" : len(lines)
+        "rejected_ips" : unique_rej_ips,
+        "accepted_ips" : unique_acc_ips,
+        "total for time" : len(lines)
     }
